@@ -38,3 +38,9 @@ export const Background = styled.div`
     min-height: 100px;
   }
 `;
+
+export const ImageContainer = styled.div`
+  width: 100%;
+  height: 65%;
+  position: relative;
+`;

@@ -10,6 +10,8 @@ import theme from '@utils/theme';
 
 import GlobalStyles from '@styles/global';
 import 'react-toastify/dist/ReactToastify.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>

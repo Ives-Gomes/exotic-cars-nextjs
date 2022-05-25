@@ -22,43 +22,39 @@ interface CardProps {
   car: Car;
 }
 
-const Card: React.FC<CardProps> = ({ car }: CardProps) => {
-  const detailHandler = () => {
-    localStorage.setItem('car', JSON.stringify(car));
-  };
+const Card: React.FC<CardProps> = ({ car }: CardProps) => (
+  <Container>
+    <Link href={`/details/${car.id}`}>
+      <a>
+        <TitleContent>
+          <div>
+            <Title>{car.name}</Title>
+            <Subtitle>{car.model}</Subtitle>
+          </div>
+        </TitleContent>
 
-  return (
-    <Container onClick={() => detailHandler()}>
-      <Link href={`/details/${car.id}`}>
-        <a>
-          <TitleContent>
-            <div>
-              <Title>{car.name}</Title>
-              <Subtitle>{car.model}</Subtitle>
-            </div>
-          </TitleContent>
+        <ImageContainer>
+          <Image
+            src={car.image}
+            alt={car.name}
+            layout="fill"
+            objectFit="contain"
+            placeholder="blur"
+            blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/PFPPQAJIANhyrSebgAAAABJRU5ErkJggg=="
+          />
+        </ImageContainer>
 
-          <ImageContainer>
-            <Image
-              src={car.image}
-              alt={car.name}
-              layout="fill"
-              objectFit="contain"
-            />
-          </ImageContainer>
+        <PriceContent>
+          <FooterText>Agende Agora</FooterText>
 
-          <PriceContent>
-            <FooterText>Agende Agora</FooterText>
-
-            <Price>
-              {convertPrice(car.price)}
-              <span>/dia</span>
-            </Price>
-          </PriceContent>
-        </a>
-      </Link>
-    </Container>
-  );
-};
+          <Price>
+            {convertPrice(car.price)}
+            <span>/dia</span>
+          </Price>
+        </PriceContent>
+      </a>
+    </Link>
+  </Container>
+);
 
 export default Card;

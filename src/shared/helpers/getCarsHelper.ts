@@ -1,6 +1,6 @@
 import { CarsMethods } from '@shared/services';
 
-const getCarsHelper = async () => {
+export const getCarsHelper = async () => {
   const { getCars } = CarsMethods();
 
   const carsResponse = await getCars();
@@ -9,5 +9,3 @@ const getCarsHelper = async () => {
 
   return cars;
 };
-
-export default getCarsHelper;

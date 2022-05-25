@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { Background, Container } from './styles';
+import { Background, Container, ImageContainer } from './styles';
 
 interface CarImageProps {
   src: string;
@@ -12,13 +12,17 @@ const CarImageComponent: React.FC<CarImageProps> = ({ src, alt }: CarImageProps)
   <Container className="containerImage">
     <Background className="backgroundImage" />
 
-    <Image
-      className="carImage"
-      src={src}
-      alt={alt}
-      width="100%"
-      height="100%"
-    />
+    <ImageContainer>
+      <Image
+        className="carImage"
+        src={src}
+        alt={alt}
+        width={350}
+        height={200}
+        placeholder="blur"
+        blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/PFPPQAJIANhyrSebgAAAABJRU5ErkJggg=="
+      />
+    </ImageContainer>
   </Container>
 );
 

@@ -5,6 +5,7 @@ import CarAnimationComponent from './Animation/CarAnimation';
 import Button from './Button';
 import CarouselButton from './CarouselButton';
 import CarImageComponent from './CarImage';
+import NotFoundAnimationComponent from './Animation/NotFound';
 
 export {
   Header,
@@ -14,4 +15,5 @@ export {
   Button,
   CarouselButton,
   CarImageComponent,
+  NotFoundAnimationComponent,
 };
