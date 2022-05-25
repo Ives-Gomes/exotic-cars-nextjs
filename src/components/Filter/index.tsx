@@ -11,8 +11,12 @@ import {
   Search,
 } from './styles';
 
-const Filter = () => (
-  <Container>
+interface FilterProps {
+  showAlert(): void;
+}
+
+const Filter = ({ showAlert }: FilterProps) => (
+  <Container onClick={() => showAlert()}>
     <LocationContainer>
       <MdLocationOn />
 

@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
-import { BiDotsHorizontalRounded } from 'react-icons/bi';
-import Tooltip from 'react-power-tooltip';
+import React from 'react';
 
 import { Car } from '@interfaces/cars/carsInterfaces';
 
@@ -11,7 +9,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   Container,
-  DotsContent,
   FooterText,
   ImageContainer,
   Price,
@@ -26,34 +23,19 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ car }: CardProps) => {
-  const [showTooltip, setShowTooltip] = useState(false);
-
   const detailHandler = () => {
     localStorage.setItem('car', JSON.stringify(car));
   };
 
   return (
     <Container onClick={() => detailHandler()}>
-      <Link href="/details">
+      <Link href={`/details/${car.id}`}>
         <a>
           <TitleContent>
             <div>
               <Title>{car.name}</Title>
               <Subtitle>{car.model}</Subtitle>
             </div>
-
-            {/* <DotsContent
-              onMouseOver={() => setShowTooltip(true)}
-              onMouseLeave={() => setShowTooltip(false)}
-            >
-              <Tooltip position="left start" show={showTooltip}>
-                <span>
-                  Estamos trabalhando nessa funcionalidade e logo ela estará disponível!
-                </span>
-              </Tooltip>
-
-              <BiDotsHorizontalRounded />
-            </DotsContent> */}
           </TitleContent>
 
           <ImageContainer>

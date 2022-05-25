@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { ToastContainer } from 'react-toastify';
 import { ThemeProvider } from 'styled-components';
 import type { AppProps } from 'next/app';
 
@@ -8,6 +9,7 @@ import { Header } from '@components/index';
 import theme from '@utils/theme';
 
 import GlobalStyles from '@styles/global';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
@@ -21,6 +23,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
     </Head>
 
     <ThemeProvider theme={theme}>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop
+      />
+
       <Header />
 
       <Component {...pageProps} />

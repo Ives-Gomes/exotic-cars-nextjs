@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import { toast } from 'react-toastify';
 
 import { Filter } from '@components/index';
 
+import Link from 'next/link';
 import {
   Button,
   ButtonsContainer,
@@ -10,36 +13,48 @@ import {
   Title,
 } from './styles';
 
-const Header: React.FC = () => (
-  <Container>
-    <HeaderContainer>
-      <Title>
-        Exotic
-        {' '}
-        <span>Cars</span>
-      </Title>
-    </HeaderContainer>
+const Header: React.FC = () => {
+  const showAlert = () => {
+    toast.info('Estamos trabalhando nessa funcionalidade e logo ela estará disponível!');
+  };
 
-    <div>
-      <Filter />
-    </div>
+  return (
+    <Container>
+      <HeaderContainer>
+        <Link href="/">
+          <a>
+            <Title>
+              Exotic
+              {' '}
+              <span>Cars</span>
+            </Title>
+          </a>
+        </Link>
+      </HeaderContainer>
 
-    <ButtonsContainer>
-      <Button
-        type="button"
-        hasBorder={false}
-      >
-        Registrar
-      </Button>
-      <Button
-        type="button"
-        hasBorder
-      >
-        Entrar
-      </Button>
-    </ButtonsContainer>
+      <div>
+        <Filter showAlert={showAlert} />
+      </div>
 
-  </Container>
-);
+      <ButtonsContainer>
+        <Button
+          type="button"
+          hasBorder={false}
+          onClick={() => showAlert()}
+        >
+          Registrar
+        </Button>
+        <Button
+          type="button"
+          hasBorder
+          onClick={() => showAlert()}
+        >
+          Entrar
+        </Button>
+      </ButtonsContainer>
+
+    </Container>
+  );
+};
 
 export default Header;

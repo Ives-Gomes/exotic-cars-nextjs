@@ -26,6 +26,11 @@ export const Container = styled.div`
 
 export const HeaderContainer = styled.div`
   cursor: pointer;
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.medium_black};
+  }
 `;
 
 export const Title = styled.h1`

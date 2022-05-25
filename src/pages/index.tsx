@@ -74,22 +74,20 @@ export async function getStaticProps() {
 
     const cars = carsResponse.data;
 
-    console.log(cars);
-
     return {
       props: {
         cars,
         error: false,
       },
+      revalidate: 60,
     };
   } catch (error) {
-    console.log(error);
-
     return {
       props: {
         cars: [],
         error: true,
       },
+      revalidate: 60,
     };
   }
 }
